@@ -25,8 +25,9 @@ router.get('/', (req, res) => {
 router.get('/metrics', (req, res) => {
     
     res.set('Content-Type','text/plain').send(`
-        # TYPE temperature gauge\n
-        temperature{state=\"total\"} 25.39
+    # HELP mongodb_exporter_last_scrape_duration_seconds Duration of the last scrape of metrics from MongoDB.
+    # TYPE mongodb_exporter_last_scrape_duration_seconds gauge
+    mongodb_exporter_last_scrape_duration_seconds 0.003035248
     `);
 
 });
