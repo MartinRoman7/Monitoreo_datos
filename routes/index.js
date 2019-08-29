@@ -24,9 +24,9 @@ router.get('/', (req, res) => {
 
 router.get('/metrics', (req, res) => {
     
-    res.set('Content-Type','text/plain').send(`
-    # HELP mongodb_exporter_last_scrape_duration_seconds Duration of the last scrape of metrics from MongoDB.
-    # TYPE mongodb_exporter_last_scrape_duration_seconds gauge
+    res.set('Content-Type','text/html').send(`
+    # HELP mongodb_exporter_last_scrape_duration_seconds Duration of the last scrape of metrics from MongoDB.<br>
+    # TYPE mongodb_exporter_last_scrape_duration_seconds gauge<br>
     mongodb_exporter_last_scrape_duration_seconds 0.003035248
     `);
 
