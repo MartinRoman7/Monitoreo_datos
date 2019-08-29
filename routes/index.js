@@ -26,9 +26,9 @@ router.get('/metrics', (req, res) => {
     
     res.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
     res.send(`
-    # HELP mongodb_exporter_last_scrape_duration_seconds Duration of the last scrape of metrics from MongoDB.\n
-    # TYPE mongodb_exporter_last_scrape_duration_seconds gauge\n
-    mongodb_exporter_last_scrape_duration_seconds 0.003035248
+    # HELP temperature Temperatura actual.\n
+    # TYPE temperature gauge\n
+    temperature 0.003035248
     `);
 
 });
