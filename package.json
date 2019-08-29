@@ -28,6 +28,7 @@
     "nodemailer": "^6.2.1",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*"
+    "passport-local": "*",
+    "prom-client": "^11.5.3"
   }
 }
