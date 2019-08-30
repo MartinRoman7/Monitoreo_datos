@@ -24,17 +24,18 @@ router.get('/', (req, res) => {
 });
 
 const gauge_temp1 = new client.Gauge({
-    name: "temperature_1",
-    help: "Último dato de temperatura uno registrado"
+    name: "temperature",
+    help: "Último dato de temperatura uno registrado",
+    labelNames: ['type']
 });
  
-const gauge_temp2 = new client.Gauge({
+/*const gauge_temp2 = new client.Gauge({
     name: "temperature_2",
     help: "Último dato de temperatura dos registrado"
-});
+});*/
 
 register.registerMetric(gauge_temp1);
-register.registerMetric(gauge_temp2);
+//register.registerMetric(gauge_temp2);
 
 /*router.get('/metrics', (req, res) => {
     
@@ -69,8 +70,8 @@ router.get('/metrics', (req, res) => {
         console.log(temperature_1)
         console.log(temperature_2)
         
-        gauge_temp1.set(Number(temperature_1));
-        gauge_temp2.set(Number(temperature_2));
+        gauge_temp1.set({ type: 'sensor 1' },Number(temperature_1));
+        gauge_temp1.set({ type: 'sensor 2' },Number(temperature_2));
 
         res.set('Content-Type', register.contentType);
         res.end(register.metrics());
