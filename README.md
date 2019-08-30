@@ -107,7 +107,7 @@ Validar funcionamiento `localhost:3000`
             "description": "Temperatura en tiempo real consumida desde una base de datos Mongo. Proyecto de Cadena de Frío",
             "editable": true,
             "error": false,
-            "fill": 2,
+            "fill": 0,
             "grid": {
                 "leftLogBase": 1,
                 "leftMax": null,
@@ -117,7 +117,7 @@ Validar funcionamiento `localhost:3000`
                 "rightMin": null
             },
             "gridPos": {
-                "h": 7,
+                "h": 10,
                 "w": 24,
                 "x": 0,
                 "y": 0
@@ -157,7 +157,7 @@ Validar funcionamiento `localhost:3000`
                     "hide": false,
                     "interval": "$interval",
                     "intervalFactor": 1,
-                    "legendFormat": "{{state}}",
+                    "legendFormat": "{{type}}",
                     "refId": "J",
                     "step": 300
                 }
@@ -214,6 +214,8 @@ Validar funcionamiento `localhost:3000`
     "style": "dark",
     "tags": [
         "MongoDB",
+        "NodeJS",
+        "Prometheus",
         "Percona"
     ],
     "templating": {
@@ -336,7 +338,7 @@ Validar funcionamiento `localhost:3000`
         ]
     },
     "timezone": "browser",
-    "title": "MongoDB Overview",
+    "title": "Monitoreo de datos",
     "uid": "6Lk9wMHik",
     "version": 1
 }

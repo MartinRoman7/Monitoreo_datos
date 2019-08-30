@@ -15,7 +15,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 
 // Comunicación a base de datos MongoDB
-mongoose.connect("mongodb://mongodb:FundacionCSMongoDB@157.230.153.234:27017/cadena_frio", { useNewUrlParser: true });
+mongoose.connect("mongodb://<user>:<password>@<IP>:27017/cadena_frio", { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 var db = mongoose.connection;
 
