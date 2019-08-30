@@ -40,16 +40,23 @@ router.get('/', (req, res) => {
 // Revisar estado cada 5 segundos
 const intervalCollector = client.collectDefaultMetrics({prefix: 'node_', timeout: 5000, register});
 
- const gauge = new client.Gauge({
+const gauge = new client.Gauge({
     name: "temperature",
     help: "Último dato de temperatura registrado"
- });
- 
-register.registerMetric(gauge);
 
-const rand = (low, high) => Math.random() * (high - low) + low;
+});
+ 
+const gauge_1 = new client.Gauge({
+    name: "inundacion",
+    help: "Último dato de inundacion registrado"
+
+});
+
+register.registerMetric(gauge);
+register.registerMetric(gauge_1);
 
 gauge.set(25.39);
+gauge_1.set(1);
 
 /*setInterval(() => {
    counter.inc(rand(0, 1));
