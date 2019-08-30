@@ -23,6 +23,19 @@ router.get('/', (req, res) => {
 
 });
 
+const gauge_temp1 = new client.Gauge({
+    name: "temperature_1",
+    help: "Último dato de temperatura uno registrado"
+});
+ 
+const gauge_temp2 = new client.Gauge({
+    name: "temperature_2",
+    help: "Último dato de temperatura dos registrado"
+});
+
+register.registerMetric(gauge_temp1);
+register.registerMetric(gauge_temp2);
+
 /*router.get('/metrics', (req, res) => {
     
     res.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
@@ -55,26 +68,15 @@ router.get('/metrics', (req, res) => {
         var temperature_2 = result[longitud_last].temperature_2;
         console.log(temperature_1)
         console.log(temperature_2)
-
-        const gauge_temp1 = new client.Gauge({
-            name: "temperature_1",
-            help: "Último dato de temperatura uno registrado"
-        });
-         
-        const gauge_temp2 = new client.Gauge({
-            name: "temperature_2",
-            help: "Último dato de temperatura dos registrado"
-        });
-        
-        register.registerMetric(gauge_temp1);
-        register.registerMetric(gauge_temp2);
         
         gauge_temp1.set(Number(temperature_1));
         gauge_temp2.set(Number(temperature_2));
 
         res.set('Content-Type', register.contentType);
         res.end(register.metrics());
+
     });
+
 });
 
 
