@@ -79,7 +79,7 @@ Validar funcionamiento `localhost:3000`
 
 3. Realizar una consulta buscando `temperature`
 <p align="center">
-<img width="700" height="230" src="public/images/query.png">
+<img width="700" height="250" src="public/images/query.png">
 </p>
 
 ### Grafana
