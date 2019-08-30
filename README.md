@@ -72,7 +72,7 @@ Validar funcionamiento `localhost:3000`
 <img width="700" height="430" src="public/images/API_Prometheus.png">
 </p>
 
-2. Validar que se tiene como target en la dirección `localhost:9090/target` y el estado es `UP`
+2. Validar que se tiene como target en la dirección `localhost:9090/targets` y el estado es `UP`
 <p align="center">
 <img width="700" height="230" src="public/images/target.png">
 </p>
@@ -341,7 +341,7 @@ Validar funcionamiento `localhost:3000`
     "version": 1
 }
 ```
-La gráfica original se tomó de [Percona (MongoDB_Overview.json)](https://github.com/percona/grafana-dashboards/blob/master/dashboards/MongoDB_Overview.json)
+El dashboard original se tomó de [Percona (MongoDB_Overview.json)](https://github.com/percona/grafana-dashboards/blob/master/dashboards/MongoDB_Overview.json)
 
 El JSON proporcionado se adaptó al proyecto de monitoreo.
 
@@ -349,7 +349,7 @@ En caso de requerir más formatos &rarr; [Percona (grafana - dashboards)](https:
 
 
 
-2. Comprobar gráfica
+2. Comprobar dashboard
 <p align="center">
 <img width="700" height="400" src="public/images/grafana_graph.png">
 </p>
