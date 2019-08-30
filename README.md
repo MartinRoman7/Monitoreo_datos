@@ -5,9 +5,9 @@
 
 * Prometheus se encarga del procesamiento de los datos.
 
-* Grafana permite el monitoreo en tiempo real de los datos
+* Grafana permite el monitoreo en tiempo real de los datos.
 
-## `NodeJS`
+## NodeJS
 
 <p align="center">
 <img width="400" height="270" src="public/images/nodejs.png">
@@ -24,7 +24,7 @@
 ```
 Validar funcionamiento `localhost:3001`
 
-## `Prometheus`
+## Prometheus
 
 <p align="center">
 <img width="300" height="300" src="public/images/prometheus.png">
@@ -40,7 +40,7 @@ Validar funcionamiento `localhost:3001`
 ```
 Validar funcionamiento `localhost:9090`
 
-## `Grafana`
+## Grafana
 <p align="center">
 <img width="300" height="300" src="public/images/grafana.png">
 </p>
