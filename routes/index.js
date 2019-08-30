@@ -13,11 +13,8 @@ var cmd = require('node-cmd');
 const client = require('prom-client');
 const register = new client.Registry();
 
-// Zoom API
-var request = require("request");
-
-// CMD - Python
-var cmd = require('node-cmd');
+// Modelos
+const Temperature = require('../models/temperature');
 
 // Página principal
 router.get('/', (req, res) => {
@@ -37,26 +34,7 @@ router.get('/', (req, res) => {
 
 });*/
 
-// Revisar estado cada 5 segundos
-const intervalCollector = client.collectDefaultMetrics({prefix: 'node_', timeout: 5000, register});
 
-const gauge = new client.Gauge({
-    name: "temperature",
-    help: "Último dato de temperatura registrado"
-
-});
- 
-const gauge_1 = new client.Gauge({
-    name: "inundacion",
-    help: "Último dato de inundacion registrado"
-
-});
-
-register.registerMetric(gauge);
-register.registerMetric(gauge_1);
-
-gauge.set(25.39);
-gauge_1.set(1);
 
 /*setInterval(() => {
    counter.inc(rand(0, 1));
@@ -66,8 +44,37 @@ gauge_1.set(1);
 }, 1000);*/
 
 router.get('/metrics', (req, res) => {
-   res.set('Content-Type', register.contentType);
-   res.end(register.metrics());
+
+    Temperature.searchTemperatureID({ id: "00000000f37ffdbb" }, (err, result) => {
+        if (err) throw err;
+
+        var longitud = result.length;
+        console.log(longitud)
+        var longitud_last = (Number(longitud) - Number(1)).valueOf();
+        var temperature_1 = result[longitud_last].temperature_1;
+        var temperature_2 = result[longitud_last].temperature_2;
+        console.log(temperature_1)
+        console.log(temperature_2)
+
+        const gauge_temp1 = new client.Gauge({
+            name: "temperature_1",
+            help: "Último dato de temperatura uno registrado"
+        });
+         
+        const gauge_temp2 = new client.Gauge({
+            name: "temperature_2",
+            help: "Último dato de temperatura dos registrado"
+        });
+        
+        register.registerMetric(gauge_temp1);
+        register.registerMetric(gauge_temp2);
+        
+        gauge_temp1.set(Number(temperature_1));
+        gauge_temp2.set(Number(temperature_2));
+
+        res.set('Content-Type', register.contentType);
+        res.end(register.metrics());
+    });
 });
 
 

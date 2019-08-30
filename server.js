@@ -12,6 +12,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var session = require('express-session');
+var mongoose = require('mongoose');
+
+// Comunicación a base de datos MongoDB
+mongoose.connect("mongodb://mongodb:FundacionCSMongoDB@157.230.153.234:27017/cadena_frio", { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
+var db = mongoose.connection;
 
 // Declaración de rutas 
 var routes = require('./routes/index');
