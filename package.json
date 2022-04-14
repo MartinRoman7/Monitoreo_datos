@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@material/card": "^0.42.0",
-    "async": "^3.0.1",
+    "async": "^3.2.2",
     "bcryptjs": "*",
     "body-parser": "*",
     "box-node-sdk": "^1.27.0",
